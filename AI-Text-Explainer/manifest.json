@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Text Explainer",
+  "version": "1.0",
+  "description": "Select text on any webpage and get AI-powered explanations using Google Gemini",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Text Explainer Settings"
+  },
+  "icons": {
+    "16": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggMkM0LjY5IDIgMiA0LjY5IDIgOHMyLjY5IDYgNiA2IDYtMi42OSA2LTZTMTEuMzEgMiA4IDJ6bTAgMTBjLTIuMjEgMC00LTEuNzktNC00czEuNzktNCA0LTQgNCAxLjc5IDQgNC0xLjc5IDQtNCA0eiIgZmlsbD0iIzMzNzNkYyIvPgo8cGF0aCBkPSJNOCA2Yy0uNTUgMC0xIC40NS0xIDF2NGMwIC41NS40NSAxIDEgMXMxLS40NSAxLTFWN2MwLS41NS0uNDUtMS0xLTF6IiBmaWxsPSIjMzM3M2RjIi8+CjxjaXJjbGUgY3g9IjgiIGN5PSI0LjUiIHI9IjEiIGZpbGw9IiMzMzczZGMiLz4KPC9zdmc+",
+    "48": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0IDZDMTUuMTggNiA4IDEzLjE4IDggMjRzNy4xOCAxOCAxOCAxOCAxOC03LjE4IDE4LTE4UzMyLjgyIDYgMjQgNnptMCAzMGMtNi42MyAwLTEyLTUuMzctMTItMTJzNS4zNy0xMiAxMi0xMiAxMiA1LjM3IDEyIDEyLTUuMzcgMTItMTIgMTJ6IiBmaWxsPSIjMzM3M2RjIi8+CjxwYXRoIGQ9Ik0yNCAxOGMtMS42NSAwLTMgMS4zNS0zIDN2MTJjMCAxLjY1IDEuMzUgMyAzIDNzMy0xLjM1IDMtM1YyMWMwLTEuNjUtMS4zNS0zLTMtM3oiIGZpbGw9IiMzMzczZGMiLz4KPGNpcmNsZSBjeD0iMjQiIGN5PSIxMy41IiByPSIzIiBmaWxsPSIjMzM3M2RjIi8+Cjwvc3ZnPg=="
+  }
+}

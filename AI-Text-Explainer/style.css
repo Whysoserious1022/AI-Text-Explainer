@@ -1,0 +1,444 @@
+/* Text Explainer Extension Styles */
+
+/* Popup Styles */
+.popup-container {
+    width: 380px;
+    min-height: 400px;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+}
+
+.popup-header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 0;
+}
+
+.popup-header h2 {
+    margin: 0 0 8px 0;
+    color: #3373dc;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.popup-header p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.popup-content {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 0 20px 20px 20px;
+    border-radius: 8px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px 40px 10px 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3373dc;
+    box-shadow: 0 0 0 3px rgba(51, 115, 220, 0.1);
+}
+
+.toggle-btn {
+    position: absolute;
+    right: 8px;
+    top: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.toggle-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.button-group {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-primary {
+    background: #3373dc;
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: #2563c1;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #f8f9fa;
+    color: #333;
+    border: 1px solid #e1e5e9;
+}
+
+.btn-secondary:hover:not(:disabled) {
+    background: #e9ecef;
+    transform: translateY(-1px);
+}
+
+.status-message {
+    margin: 12px 0;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.status-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status-message.loading {
+    background: #e2e3e5;
+    color: #383d41;
+    border: 1px solid #d6d8db;
+}
+
+.instructions {
+    margin-top: 16px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #3373dc;
+}
+
+.instructions h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.instructions ol {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.instructions a {
+    color: #3373dc;
+    text-decoration: none;
+}
+
+.instructions a:hover {
+    text-decoration: underline;
+}
+
+/* Content Script Styles */
+.text-explainer-button {
+    background: linear-gradient(135deg, #3373dc, #2563c1);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(51, 115, 220, 0.3);
+    transition: all 0.2s;
+    user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    white-space: nowrap;
+}
+
+.text-explainer-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(51, 115, 220, 0.4);
+    background: linear-gradient(135deg, #2563c1, #1d4ed8);
+}
+
+.text-explainer-button:active {
+    transform: translateY(0);
+}
+
+/* Modal Styles */
+.text-explainer-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.text-explainer-modal {
+    background: white;
+    border-radius: 12px;
+    max-width: 600px;
+    max-height: 80vh;
+    margin: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    animation: slideIn 0.3s ease-out;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@keyframes slideIn {
+    from { 
+        transform: translateY(-20px) scale(0.95);
+        opacity: 0;
+    }
+    to { 
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+    padding: 24px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.original-text {
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #3373dc;
+}
+
+.original-text h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.original-text p {
+    margin: 0;
+    font-style: italic;
+    color: #555;
+    line-height: 1.5;
+}
+
+.explanation {
+    margin-bottom: 16px;
+}
+
+.explanation h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.explanation-content {
+    line-height: 1.6;
+    color: #333;
+    font-size: 15px;
+}
+
+.explanation-content p {
+    margin: 0 0 12px 0;
+}
+
+.explanation-content p:last-child {
+    margin-bottom: 0;
+}
+
+.error-message {
+    color: #dc3545;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.modal-footer {
+    padding: 16px 24px;
+    background: #f8f9fa;
+    text-align: right;
+    border-top: 1px solid #e9ecef;
+}
+
+.modal-close-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.modal-close-btn:hover {
+    background: #5a6268;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3373dc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .text-explainer-modal {
+        margin: 10px;
+        max-height: 90vh;
+    }
+    
+    .modal-header {
+        padding: 16px 20px;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-footer {
+        padding: 12px 20px;
+    }
+}
+
+/* Accessibility Improvements */
+.text-explainer-button:focus,
+.btn:focus,
+.modal-close:focus,
+.modal-close-btn:focus {
+    outline: 2px solid #3373dc;
+    outline-offset: 2px;
+}
+
+/* Dark mode support for websites */
+@media (prefers-color-scheme: dark) {
+    .text-explainer-modal {
+        background: #2d3748;
+        color: #e2e8f0;
+    }
+    
+    .modal-body {
+        background: #2d3748;
+    }
+    
+    .original-text {
+        background: #4a5568;
+        color: #e2e8f0;
+        border-left-color: #63b3ed;
+    }
+    
+    .explanation-content {
+        color: #e2e8f0;
+    }
+    
+    .modal-footer {
+        background: #4a5568;
+        border-top-color: #718096;
+    }
+}
